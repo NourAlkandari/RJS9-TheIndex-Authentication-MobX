@@ -16,7 +16,12 @@ class AuthStore {
 
   signup = async (userData, history) => {
     try {
-      await axios.post("https://the-index-api.herokuapp.com/signup/", userData);
+      const res = await axios.post(
+        "https://the-index-api.herokuapp.com/signup/",
+        userData
+      );
+      const user = res.data;
+      this.setUser(user.token);
       history.replace("/");
     } catch (err) {
       console.error(err.response.data);

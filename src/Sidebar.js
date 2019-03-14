@@ -24,7 +24,7 @@ class Sidebar extends Component {
                 className="transparent"
                 onClick={() => authStore.logout()}
               >
-                Logout
+                Logout {authStore.user.username}
               </button>
             </h4>
           ) : (
