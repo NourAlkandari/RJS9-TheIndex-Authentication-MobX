@@ -13,6 +13,10 @@ import BookList from "./BookList";
 import authorStore from "./stores/AuthorStore";
 import bookStore from "./stores/BookStore";
 
+//Forms
+import LoginForm from "./forms/LoginForm";
+import SignupForm from "./forms/SignupForm";
+
 class App extends Component {
   getView() {
     if (authorStore.loading || bookStore.loading) {
@@ -24,6 +28,9 @@ class App extends Component {
           <Route path="/authors/:authorID" component={AuthorDetail} />
           <Route path="/authors/" component={AuthorsList} />
           <Route path="/books/:bookColor?" component={BookList} />
+          <Route path="/login/" component={LoginForm} />
+          {/* route sends its props to the component it calling  */}
+          <Route path="/signup/" component={SignupForm} />
         </Switch>
       );
     }

@@ -8,19 +8,19 @@ import AddAuthorCard from "./AddAuthorCard";
 
 // Store
 import authorStore from "./stores/AuthorStore";
+import authStore from "./stores/AuthStore";
 
 class AuthorsList extends Component {
   render() {
     const authorCards = authorStore.filteredAuthors.map(author => (
       <AuthorCard key={author.id} author={author} />
     ));
-
     return (
       <div className="authors">
         <h3>Authors</h3>
         <SearchBar store={authorStore} />
         <div className="row">
-          <AddAuthorCard />
+          {authStore.user && <AddAuthorCard />}
           {authorCards}
         </div>
       </div>
